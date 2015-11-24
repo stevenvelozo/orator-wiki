@@ -1,10 +1,11 @@
 {
   "name": "orator-wiki",
-  "version": "0.1.14",
-  "description": "Orator Wiki module.",
+  "version": "0.1.15",
+  "description": "Orator Wiki plug-in module",
   "main": "source/Orator-Wiki.js",
   "scripts": {
     "start": "node source/Orator-Wiki.js",
+    "serve": "node source/Orator-Wiki-Server.js",
     "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -u tdd -R spec",
     "test": "./node_modules/mocha/bin/_mocha -u tdd -R spec"
   },
@@ -34,7 +35,6 @@
     "nodegrind": "0.4.0"
   },
   "dependencies": {
-    "fable": "^0.1.6",
     "restify": "2.8.5"
   }
 }

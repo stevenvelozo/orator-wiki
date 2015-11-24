@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Orator Wiki</title>
+  <link rel="shortcut icon" href="/favicon.ico?v=0000">
+</head>
+
+<body>
+	<h1>Orator Wiki</h1>
+	<hr />
+	<div id="OratorWikiContent"></div>
+	<div id="OratorWikiContentEditor"></div>
+
+	<script type="text/html" id="Orator_Wiki_Content">
+	<div id="Orator_Wiki_Content_Rendered"><%= ParsedContent %></div>
+	<div id="Orator_Wiki_Edit_Link_Container"><a id="Orator_Wiki_Edit_Link" href="#Edit/<%= Hash %>">Edit this Content</a></div>
+	</script>
+
+	<script type="text/html" id="Orator_Wiki_Content_Editor">
+		<h1>Edit Content: <%= Hash %></h1>
+		<form action="" method="post" id="Orator_Wiki_Content_Form">
+			<input type="hidden" id="Orator_Wiki_Hash" name="Orator_Wiki_Hash" value="<%= Hash %>">
+			<div id="Orator_Wiki_Markdown_Editor"></div>
+			<div>
+				<textarea class="Hide" rows="6" placeholder="Put some markdown in there." id="Orator_Wiki_Content" name="Orator_Wiki_Content"><%= Content %></textarea>
+			</div>
+			<div> <button id="Orator_Wiki_Save" type="submit">Save</button> </div>
+		</form>
+	</script>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript">
+        if (typeof(console) === 'undefined') window.console = { log: function() {} }; // ie fix
+    </script>
+    
+    <script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+ 
+    <script src="js/underscore-min.js" type="text/javascript"></script>
+
+	<script src="js/epiceditor/js/epiceditor.min.js" type="text/javascript"></script>
+
+    <!-- MARKDOWN EDITOR .. THIS MUST BE BEFORE REQUIRE.JS -->
+    <script src="js/marked.js" type="text/javascript"></script>
+
+    <script src="js/backbone.js" type="text/javascript"></script>
+
+	<script src="js/orator-wiki.js" type="text/javascript"></script>
+    <!-- /SCRIPTS -->
+</body>
