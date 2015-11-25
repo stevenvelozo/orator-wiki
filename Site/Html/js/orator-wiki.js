@@ -40,7 +40,7 @@ OratorWiki.CurrentContent = '';
 OratorWiki.getContent = function(pContentHash, fComplete)
 {
 	var tmpComplete = (typeof(fComplete) === 'function') ? fComplete : function(){};
-	var tmpContentHash = (typeof(pContentHash) === 'string') ? pContentHash : 'DocumentationIndex';
+	var tmpContentHash = (typeof(pContentHash) === 'string') ? pContentHash : 'TableOfContents';
 	// Load the main page, which is hand-built
 	$.ajax
 	(
@@ -100,7 +100,7 @@ OratorWiki.pushContent = function(pContent, fComplete)
 OratorWiki.getContentEditor = function(pContentHash, fComplete)
 {
 	var tmpComplete = (typeof(fComplete) === 'function') ? fComplete : function(){};
-	var tmpContentHash = (typeof(pContentHash) === 'string') ? pContentHash : 'DocumentationIndex';
+	var tmpContentHash = (typeof(pContentHash) === 'string') ? pContentHash : 'TableOfContents';
 
 	$.ajax
 	(

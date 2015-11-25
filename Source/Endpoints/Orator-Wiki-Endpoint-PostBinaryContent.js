@@ -11,6 +11,8 @@
 */
 var oratorWikiPostBinaryContent = function(pOrator, fCallBack)
 {
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+
 	libOrator.webServer.post
 	(
 		/\/content\/(.*)/,
@@ -18,7 +20,7 @@ var oratorWikiPostBinaryContent = function(pOrator, fCallBack)
 		{
 			var tmpNext = (typeof(fNext) === 'function') ? fNext : function() {};
 
-			var tmpFileName = libOrator.settings.ContentPrefix+pRequest.params.Hash
+			var tmpFileName = libOrator.settings.WikiContentFolder+pRequest.params.Hash
 
 			libOrator.log.trace('Content Upload', {FileName:tmpFileName, ContentType:pRequest.contentType})
 			var tmpContentType = pRequest.header('Content-Type');
@@ -37,7 +39,7 @@ var oratorWikiPostBinaryContent = function(pOrator, fCallBack)
 		}
 	);
 
-	return fCallback;
+	return tmpCallback();
 };
 
 module.exports = oratorWikiPostBinaryContent;

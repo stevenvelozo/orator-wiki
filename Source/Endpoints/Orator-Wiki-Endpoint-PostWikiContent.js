@@ -3,8 +3,7 @@
 * @license MIT
 * @author <steven@velozo.com>
 */
-var libAsync = require('async');
-
+var libFS = require('fs');
 /**
 * Orator Wiki Endpoint - Post Wiki Content
 *
@@ -12,6 +11,8 @@ var libAsync = require('async');
 */
 var oratorWikiPostWikiContent = function(pOrator, fCallBack)
 {
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+
 	pOrator.webServer.post
 	(
 		'Content',
@@ -19,7 +20,7 @@ var oratorWikiPostWikiContent = function(pOrator, fCallBack)
 		{
 			var tmpNext = (typeof(fNext) === 'function') ? fNext : function() {};
 
-			var tmpFileName = pOrator.settings.ContentPrefix+pRequest.body.File
+			var tmpFileName = pOrator.settings.WikiContentFolder+pRequest.body.File
 
 			pOrator.log.trace('Content Upload', {FileName:tmpFileName});
 
@@ -43,7 +44,7 @@ var oratorWikiPostWikiContent = function(pOrator, fCallBack)
 		}
 	);
 
-	return fCallback;
+	return tmpCallback();
 };
 
 module.exports = oratorWikiPostWikiContent;

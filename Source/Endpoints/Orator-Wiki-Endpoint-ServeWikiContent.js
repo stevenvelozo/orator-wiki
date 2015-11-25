@@ -3,15 +3,17 @@
 * @license MIT
 * @author <steven@velozo.com>
 */
-var libAsync = require('async');
+var libRestify = require('restify');
 
 /**
 * Orator Wiki Endpoint - Serve Wiki Content
 *
 * @function oratorWikiServeWikiContent
 */
-var oratorWikiServeWikiContent = function(pOrator, fCallBack)
+var oratorWikiServeWikiContent = function(pOrator, fCallback)
 {
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+
 	pOrator.webServer.get
 	(
 		/\/content\/(.*)/,
@@ -32,7 +34,7 @@ var oratorWikiServeWikiContent = function(pOrator, fCallBack)
 		}
 	);
 
-	return fCallback();
+	return tmpCallback();
 };
 
 module.exports = oratorWikiServeWikiContent;

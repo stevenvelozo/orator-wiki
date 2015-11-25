@@ -35,10 +35,15 @@ var OratorWiki = function()
 		// Wire the endpoints up for the wiki API
 		var initializeEndpoints = function(fComplete)
 		{
-			require('Endpoints/Orator-Wiki-Endpoint-ServeWikiContent.js')(_Orator);
-			require('Endpoints/Orator-Wiki-Endpoint-ServeStaticContent.js')(_Orator);
+			var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
 
-			return fComplete();
+			require(__dirname+'/Endpoints/Orator-Wiki-Endpoint-PostWikiContent.js')(_Orator);
+
+
+			require(__dirname+'/Endpoints/Orator-Wiki-Endpoint-ServeWikiContent.js')(_Orator);
+			require(__dirname+'/Endpoints/Orator-Wiki-Endpoint-ServeStaticContent.js')(_Orator);
+
+			return tmpCallback();
 		}
 
 		/**

@@ -13,12 +13,14 @@ var libAsync = require('async');
 */
 var oratorWikiListWikiContent = function(pOrator, fCallBack)
 {
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+
 	pOrator.webServer.post
 	(
 		'List',
 		function(pRequest, pResponse, fNext)
 		{
-			var tmpFolder = (typeof(pRequest.body.Folder) === 'undefined') ? pOrator.settings.ContentPrefix : pOrator.settings.ContentPrefix+pRequest.body.Folder;
+			var tmpFolder = (typeof(pRequest.body.Folder) === 'undefined') ? pOrator.settings.WikiContentFolder : pOrator.settings.WikiContentFolder+pRequest.body.Folder;
 
 			var tmpListing = [];
 
@@ -75,7 +77,7 @@ var oratorWikiListWikiContent = function(pOrator, fCallBack)
 		}
 	);
 
-	return fCallback;
+	return tmpCallback();
 };
 
 module.exports = oratorWikiListWikiContent;

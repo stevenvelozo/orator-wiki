@@ -12,6 +12,8 @@ var libRestify = require('restify');
 */
 var oratorWikiServeStaticContent = function(pOrator, fCallBack)
 {
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+
 	pOrator.webServer.get
 	(
 		/\/.*/,
@@ -23,7 +25,7 @@ var oratorWikiServeStaticContent = function(pOrator, fCallBack)
 			pOrator.log.trace('Serving content: '+pRequest.url);
 			var tmpServe = libRestify.serveStatic(
 				{
-					directory: pOrator.settings.StaticContentFolder+'/stage/',
+					directory: pOrator.settings.StaticContentFolder,
 					default:'index.html',
 					maxAge: 0
 				}
@@ -32,7 +34,7 @@ var oratorWikiServeStaticContent = function(pOrator, fCallBack)
 		}
 	);
 
-	return fCallback();
+	return tmpCallback();
 };
 
 module.exports = oratorWikiServeStaticContent;

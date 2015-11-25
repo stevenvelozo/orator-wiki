@@ -35,6 +35,7 @@
     "nodegrind": "0.4.0"
   },
   "dependencies": {
+    "orator": "^0.1.13",
     "restify": "2.8.5"
   }
 }

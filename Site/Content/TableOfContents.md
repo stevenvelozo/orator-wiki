@@ -1,4 +1,4 @@
 Table of Contents
 -----------------
 
-Here be the contents.  Thar be the whale.
+Ahoy! Here be the contents.  Thar be the whale matey.  Avast.
