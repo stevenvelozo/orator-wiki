@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "0.12"
+addons:
+  code_climate:
+    repo_token: 84d6cb6fced884a57c7dd276f6cdb3c43c76013d789cf0cb07c0a01a2f0ec40d
+after_success:
+  - npm run coverage
+after_script:
+  - cat coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
+  - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+notifications:
+  slack: paviateam:C1q99hL9XXpiPpau2PUrVZPC
