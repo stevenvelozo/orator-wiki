@@ -1,6 +1,6 @@
 {
   "name": "orator-wiki",
-  "version": "0.1.15",
+  "version": "1.0.1",
   "description": "Orator Wiki plug-in module",
   "main": "source/Orator-Wiki.js",
   "scripts": {
