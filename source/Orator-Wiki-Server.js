@@ -13,7 +13,7 @@ var libOrator = require('orator').new(
 		Product: 'OratorWiki',
 		ProductVersion: require(__dirname+'/../package.json').version,
 
-		"APIServerPort": 7000,
+		"APIServerPort": 8080,
 
 		WikiContentFolder: __dirname+'/../Site/Content/',
 		StaticContentFolder:__dirname+'/../Site/Html/'

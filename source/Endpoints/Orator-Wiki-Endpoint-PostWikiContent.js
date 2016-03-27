@@ -11,7 +11,7 @@ var libFS = require('fs');
 */
 var oratorWikiPostWikiContent = function(pOrator, fCallBack)
 {
-	var tmpCallback = (typeof(fCallback) === 'function') ? fCallback : function() {};
+	var tmpCallback = (typeof(fCallback) === 'function') ? fCallBack : function() {};
 
 	pOrator.webServer.post
 	(
